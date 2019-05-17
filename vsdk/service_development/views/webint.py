@@ -9,5 +9,6 @@ def index(request):
     return render(request, 'webint.html', context)
 
 def detail(request, category_name):
-    category = get_object_or_404(SpokenUserInput, pk=category_name)
-    return render(request, 'detail.html', {'category': category})
+    name = category_name
+    category = SpokenUserInput.objects.filter(category__name=category_name)
+    return render(request, 'detail.html', {'category': category, 'name': name})

@@ -1,1 +1,13 @@
-{{ category.name }}
+<h1>{{ name }} orders</h1>
+
+{% if category %}
+<h1>{{ category }}</h1>
+<ol>
+  {% for item in category %}
+  <li>{{ category.time }}</li>
+  {% endfor %}
+</ol>
+<button type="button" name="delete">Delete selected</button>
+{% else %}
+<p>Currently there are no {{ name }} orders</p>
+{% endif %}
