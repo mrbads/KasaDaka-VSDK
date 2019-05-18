@@ -1,10 +1,23 @@
 <h1>{{ name }} orders</h1>
 
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<!-- <form action="{% url 'delete' category.id %}" method="post">
+  {% csrf_token %}
+  {% for order in category %}
+  <input type="checkbox" name="order" value="{{ order.id }}" id="order{{ forloop.counter}}">
+  <label for="order{{ forloop.counter }}">{{ order.time}}</label><br>
+  {% endfor %}
+  <input type="submit" value="Delete">
+</form> -->
+
 {% if category %}
-<h1>{{ category }}</h1>
+<!-- <h1>{{ category }}</h1> -->
 <ol>
   {% for item in category %}
-  <li>{{ category.time }}</li>
+  <li>{{ category.session }}</li>
   {% endfor %}
 </ol>
 <button type="button" name="delete">Delete selected</button>
