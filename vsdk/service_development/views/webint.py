@@ -12,6 +12,3 @@ def detail(request, category_name):
     name = category_name
     category = SpokenUserInput.objects.filter(category__name=category_name)
     return render(request, 'detail.html', {'category': category, 'name': name})
-
-def delete(request, category_name):
-    pass

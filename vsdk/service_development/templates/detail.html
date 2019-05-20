@@ -6,7 +6,7 @@
 
 {% if category %}
 <!-- <h1>{{ category }}</h1> -->
-<form action="{% url '' order.id %}" method="post">
+<form method="post">
   {% csrf_token %}
   {% for order in category %}
   <input type="radio" name="order" id="order{{ forloop.counter }}" value="{{ order.id}}">
