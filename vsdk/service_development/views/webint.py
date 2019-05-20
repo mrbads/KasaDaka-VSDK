@@ -12,3 +12,13 @@ def detail(request, category_name):
     name = category_name
     category = SpokenUserInput.objects.filter(category__name=category_name)
     return render(request, 'detail.html', {'category': category, 'name': name})
+
+def delete(request, category_name):
+    category = SpokenUserInput.objects.filter(category__name=category_name)
+    try:
+        selected_order = SpokenUserInput.objects.get(pk=request.POST['order'])
+    except (KeyError, SpokenUserInput.DoesNotExist):
+        return render(request, 'detail.html', {'category': category, 'name': category_name, 'error_message': "You didn't select a order"})
+    else:
+        selected_order.delete()
+        return HttpResponseRedirect(reverse('detail.html', args=(category_name)))
