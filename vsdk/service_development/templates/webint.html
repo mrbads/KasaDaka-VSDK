@@ -5,7 +5,7 @@ To view current orders in the system, click on the categories below:</p>
 {% if category_list %}
 <ul>
   {% for category in category_list %}
-  <li><a href="{% url 'service-development:detail' category.name %}">{{ category.name }}</a></li>
+  <li><a href="{% url 'service-development:detail' category.id %}">{{ category.name }}</a></li>
   {% endfor %}
 </ul>
 {% else %}
