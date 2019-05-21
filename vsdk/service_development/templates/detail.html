@@ -4,11 +4,11 @@
 <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
-{% if category.category.all() %}
+{% if category %}
 <!-- <h1>{{ category }}</h1> -->
 <form method="post">
   {% csrf_token %}
-  {% for order in category.category.all() %}
+  {% for order in category.category.all %}
   <input type="radio" name="order" id="order{{ forloop.counter }}" value="{{ order.id }}">
   <label for="order{{ forloop.counter }}">{{ order.session }}</label><br>
   {% endfor %}
