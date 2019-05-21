@@ -4,22 +4,22 @@
 <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
-{% if category %}
+{% if category.category %}
 <!-- <h1>{{ category }}</h1> -->
 <form method="post">
   {% csrf_token %}
-  {% for order in category %}
+  {% for order in category.category %}
   <input type="radio" name="order" id="order{{ forloop.counter }}" value="{{ order.id }}">
   <label for="order{{ forloop.counter }}">{{ order.session }}</label><br>
   {% endfor %}
   <input type="submit" value="Delete">
 </form>
 
-<ol>
+<!-- <ol>
   {% for item in category %}
   <li>{{ category.session }}</li>
   {% endfor %}
-</ol>
+</ol> -->
 {% else %}
 <p>Currently there are no {{ name }}</p>
 {% endif %}
