@@ -10,11 +10,11 @@ def index(request):
 
 def detail(request, category_name):
     name = category_name
-    category = UserInputCategory.objects.filter(name=category_name)
+    category = UserInputCategory.objects.get(name=category_name)
     return render(request, 'detail.html', {'category': category, 'name': name})
 
 def delete(request, category_name):
-    category = UserInputCategory.objects.filter(name=category_name)
+    category = UserInputCategory.objects.get(name=category_name)
     try:
         selected_order = UserInputCategory.spokenuserinput_set.get(pk=request.POST['order'])
     except (KeyError, SpokenUserInput.DoesNotExist):
