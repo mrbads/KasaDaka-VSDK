@@ -4,7 +4,7 @@
 <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
-{% if category.category %}
+{% if category.category.all %}
 <!-- <h1>{{ category }}</h1> -->
 <form method="post">
   {% csrf_token %}
