@@ -8,7 +8,7 @@
 <!-- <h1>{{ category }}</h1> -->
 <form method="post">
   {% csrf_token %}
-  {% for order in category.category %}
+  {% for order in category.category.all %}
   <input type="radio" name="order" id="order{{ forloop.counter }}" value="{{ order.id }}">
   <label for="order{{ forloop.counter }}">{{ order.session }}</label><br>
   {% endfor %}
