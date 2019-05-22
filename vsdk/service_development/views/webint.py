@@ -39,16 +39,15 @@ class DetailView(generic.DetailView):
 #         'name': category_name
 #         })
 
-def delete(request, category_name):
-    category = get_object_or_404(UserInputCategory, name=category_name)
+def delete(request, category_id):
+    category = get_object_or_404(UserInputCategory, pk=category_id)
     try:
         selected_order = category.category.get(pk=request.POST['order'])
     except (KeyError, SpokenUserInput.DoesNotExist):
         return render(request, 'detail.html', {
             'category': category,
-            'name': category_name,
             'error_message': "You didn't select a order"
         })
     else:
         selected_order.delete()
-        return HttpResponseRedirect(reverse('detail.html', args=(category_name)))
+        return HttpResponseRedirect(reverse('detail.html', args=(category.id)))
