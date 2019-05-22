@@ -11,8 +11,8 @@
   {% for order in userinputcategory.category.all %}
   <input type="radio" name="order" id="order{{ forloop.counter }}" value="{{ order.id }}">
   <label for="order{{ forloop.counter }}">{{ order.session }}</label><br>
-  <audio src="http://django-static.vps.abaart.nl/2019_group_2/django/{{ order.audio }}">
-
+  <audio src="http://django-static.vps.abaart.nl/2019_group_2/django/{{ order.audio }}" controls>
+    Your browser does not support the audio element.
   </audio>
   {% endfor %}
   <input type="submit" value="Delete">
