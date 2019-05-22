@@ -1,0 +1,11 @@
+.bg-primary {
+  background-color: #0097a7 !important;
+}
+.btn-primary {
+  background-color: #0097a7 !important;
+}
+.btn-outline-primary {
+  background-color: #0097a7 !important;
+  border-color: #0097a7 !important;
+  color: white;
+}
