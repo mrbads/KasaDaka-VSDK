@@ -13,6 +13,12 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return UserInputCategory.objects.all()
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['orders'] = UserInputCategory.objects.filter(name__contains='orders')
+        context['supply'] = UserInputCategory.objects.filter(name__contains='supply')
+        return context
+
 # def index(request):
 #     category_list = UserInputCategory.objects.all()
 #     context = { 'category_list': category_list, }
