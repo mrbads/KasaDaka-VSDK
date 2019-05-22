@@ -11,6 +11,9 @@
   {% for order in userinputcategory.category.all %}
   <input type="radio" name="order" id="order{{ forloop.counter }}" value="{{ order.id }}">
   <label for="order{{ forloop.counter }}">{{ order.session }}</label><br>
+  <audio src="{{ order.audio }}">
+
+  </audio>
   {% endfor %}
   <input type="submit" value="Delete">
 </form>
