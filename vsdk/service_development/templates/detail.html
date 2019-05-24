@@ -24,12 +24,12 @@
     {% endif %}
 
     {% if userinputcategory.category.all.count > 0 %}
-    <form class="" action="{% url 'service-development:delete' userinputcategory.id %}" method="post">
+    <form action="{% url 'service-development:delete' userinputcategory.id %}" method="post">
       {% csrf_token %}
       {% for order in userinputcategory.category.all %}
       <div class="row">
         <div class="col">
-          <input type="radio" name="order" id="order{{ forloop.counter }}" value="{{ order.id }}">
+          <input type="radio" name="order" id="order{{ forloop.counter }}" value="{{ order.id }}"/>
           <label for="order{{ forloop.counter }}">{{ order.session }}</label>
         </div>
         <div class="col">
@@ -39,7 +39,7 @@
         </div>
       </div>
       {% endfor %}
-      <input class="btn btn-primary" type="submit" value="Delete">
+      <input class="btn btn-primary" type="submit" value="Delete" />
     </form>
     {% else %}
     <div class="row justify-content-center">
