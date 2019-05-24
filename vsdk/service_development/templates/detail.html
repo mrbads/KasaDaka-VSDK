@@ -24,7 +24,7 @@
     {% endif %}
 
     {% if userinputcategory.category.all.count > 0 %}
-    <form class="" action="index.html" method="post">
+    <form class="" action="{% url 'service-development:del' order.id %}" method="post">
       {% csrf_token %}
       {% for order in userinputcategory.category.all %}
       <div class="row">
