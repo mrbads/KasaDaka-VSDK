@@ -44,8 +44,8 @@ def delete(request, category_id):
     try:
         selected_order = category.category.get(pk=request.POST['order'])
     except (KeyError, SpokenUserInput.DoesNotExist):
-        return render(request, 'sevice-development:detail', {
-            'category': category,
+        return render(request, 'detail.html', {
+            'userinputcategory': category,
             'error_message': "You didn't select a order"
         })
     else:
