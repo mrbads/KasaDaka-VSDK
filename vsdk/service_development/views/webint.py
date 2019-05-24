@@ -50,4 +50,4 @@ def delete(request, category_id):
         })
     else:
         selected_order.delete()
-        return HttpResponseRedirect(reverse('service-development:detail', args=(category.id)))
+        return HttpResponseRedirect(reverse('service-development:detail', args=(category.id, )))
