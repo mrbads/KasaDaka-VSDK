@@ -39,7 +39,7 @@ class DetailView(generic.DetailView):
 #         'name': category_name
 #         })
 
-def delete(self, request, category_id):
+def delete(request, category_id):
     category = get_object_or_404(UserInputCategory, pk=category_id)
     try:
         selected_order = category.category.get(pk=request.POST['order'])
